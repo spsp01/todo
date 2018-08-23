@@ -13,11 +13,12 @@ def home(request):
     if request.method == 'POST':
         form = TaskForm(request.POST or None)
         print(form)
+        items = Tasklist.objects.all
         if form.is_valid():
             form.save()
-            items = Tasklist.objects.all
-            messages.success(request,('Task Added'))
-            return render(request, 'app/home.html', {'items': items})
+
+            #return render(request, 'app/home.html', {'items': items})
+        return render(request, 'app/home.html', {'items': items})
     else:
          items = Tasklist.objects.all
          return render(request, 'app/home.html', {'items': items})
@@ -25,6 +26,10 @@ def home(request):
 def delete(request, task_id):
     task = Tasklist.objects.get(pk=task_id)
     task.delete()
+    return redirect('home')
+
+def deleteall(request):
+    Tasklist.objects.all().delete()
     return redirect('home')
 
 def edit(request, task_id):
