@@ -5,3 +5,6 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Tasklist
         fields = ['item', 'ended']
+
+class UploadFileForm(forms.Form):
+    file = forms.FileField()
