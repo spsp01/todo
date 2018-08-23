@@ -6,4 +6,3 @@ class Tasklist(models.Model):
 
     def __str__(self):
         return self.item + ' - ' + str(self.ended)
-# Create your models here.
