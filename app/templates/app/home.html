@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <div data-icon="ei-check" data-size="m"></div>
           <p class="lead">Organize your tasks, lists in one easy to-do app</p>
     </div>
 
@@ -55,7 +56,8 @@
                       {% for i in items %}
                        <tr>
                         <td>{{i.item}} - {{i.ended}}</td>
-                        <td class="actions"><a class="icon" href="{% url 'delete' i.id %}"><div data-icon="ei-close"></div></a></td>
+                        <td class="actions"><a class="icon" href="{% url 'delete' i.id %}"><div data-icon="ei-close"></div></a>
+                            <a class="icon" href="{% url 'edit' i.id %}"><div data-icon="ei-pencil"></div></a></td>
                       </tr>
                       {% endfor %}
 

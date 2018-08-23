@@ -1,3 +1,5 @@
+
+
 {% extends 'app/base.html' %}
 
 {% block content %}
@@ -11,16 +13,20 @@
             <div class="col-12 col-lg-12 ">
                 <div class="card ">
           <div class="card-header">
-           <div class="title">Import bulk from csv</div>
+           <div class="title">Edit task</div>
           </div>
           <div class="card-body">
-  <form method="post" enctype="multipart/form-data">
+<form method="post" action="/">
     {% csrf_token %}
-    {{form.file}}
-      <p></p>
-    <button type="submit" class="btn btn-lg btn-block btn-outline-primary">Import bulk</button>
 
-  </form>
+  <div class="form-group">
+    <label for="task-content">Enter task text</label>
+    {{form}}
+  </div>
+
+<button type="submit" class="btn btn-lg btn-block btn-outline-primary">Edit task</button>
+</form>
+
 
           </div>
         </div>

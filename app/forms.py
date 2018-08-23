@@ -8,3 +8,4 @@ class TaskForm(forms.ModelForm):
 
 class UploadFileForm(forms.Form):
     file = forms.FileField()
+    file.widget.attrs['class'] = 'form-control-file'

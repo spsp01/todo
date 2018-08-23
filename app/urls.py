@@ -6,5 +6,6 @@ from django.conf import settings
 urlpatterns =[
     path('', views.home, name ='home'),
     path('delete/<task_id>', views.delete,name='delete'),
+    path('edit/<task_id>', views.edit, name ='edit'),
     path('import', views.importcsv, name ='importcsv'),
 ]

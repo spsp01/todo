@@ -27,6 +27,18 @@ def delete(request, task_id):
     task.delete()
     return redirect('home')
 
+def edit(request, task_id):
+    if request.method == 'POST':
+        post = get_object_or_404(Tasklist, pk=task_id)
+        form = TaskForm(request.POST or None, instance=post)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+      form = TaskForm()
+    return render(request, 'app/edit.html', {'form': form})
+
 def importcsv(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
